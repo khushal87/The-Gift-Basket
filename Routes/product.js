@@ -32,4 +32,7 @@ Router.put('/update-product/:id', [
 //Delete specific product
 Router.delete('/delete-product/:id', productController.deleteProduct);
 
+//Get Specic product by category
+Router.get('/get-products-by-category/:category', productController.getSpecificProductByCategory);
+
 module.exports = Router;

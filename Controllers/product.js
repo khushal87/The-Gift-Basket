@@ -15,7 +15,7 @@ function clearFile(pathname) {
 
 exports.getProducts = (req, res, next) => {
     Product
-        .find()
+        .find({ is_available: true })
         .then((products) => {
             res.status(200).json({ message: "Products fetched", products: products });
         })
@@ -85,6 +85,24 @@ exports.getSpecificProduct = (req, res, next) => {
                 throw error;
             }
             res.status(200).json({ message: 'Product Fetched!', product: product });
+        }).catch((err) => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        })
+}
+
+exports.getSpecificProductByCategory = (req, res, next) => {
+    const productCategory = req.params.category;
+    Product.find({ category: productCategory })
+        .then((product) => {
+            if (!product) {
+                const error = new Error('Could not find product.');
+                error.status = 404;
+                throw error;
+            }
+            res.status(200).json({ message: 'Product Fetched!', product: product })
         }).catch((err) => {
             if (!err.statusCode) {
                 err.statusCode = 500;
