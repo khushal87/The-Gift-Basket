@@ -1,0 +1,31 @@
+{
+  "name": "thegiftbasket",
+  "version": "1.0.0",
+  "description": "Online gift items order website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Khushal Agarwal",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.709.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-validator": "^6.6.0",
+    "http-errors": "^1.8.0",
+    "http-status": "^1.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.21",
+    "multer": "^1.4.2",
+    "uuid": "^8.2.0"
+  }
+}
